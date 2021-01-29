@@ -1,0 +1,33 @@
+﻿@model Ecommerce_Website.Models.Entity.Tbl_Product
+
+@{
+    ViewBag.Title = "ProductGet";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Update", "Management", FormMethod.Post,new { enctype="multipart/form-data"}))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.ProductCode)
+    @Html.TextBoxFor(m => m.ProductCode, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.ProductTitle)
+    @Html.TextBoxFor(m => m.ProductTitle, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.ProductDescription)
+    @Html.TextBoxFor(m => m.ProductDescription, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.Stock)
+    @Html.TextBoxFor(m => m.Stock, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.ProductPrice)
+    @Html.TextBoxFor(m => m.ProductPrice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.ProductImage)
+    @Html.TextBoxFor(m => m.ProductImage, new { @class = "form-control" })
+
+</div>
+    <div>
+        <button class="btn btn-warning">Update Product</button>
+    </div>
+}

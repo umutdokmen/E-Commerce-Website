@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Add_New_Product";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Product Name</label>
+        <input type="text" class="form-control" name="ProductTitle" />
+    </div>
+    <div>
+        <label>Product Description</label>
+        <input type="text" class="form-control" name="ProductDescription" />
+    </div>
+    <div>
+        <label>Stock</label>
+        <input type="text" class="form-control" name="Stock" />
+    </div>
+    <div>
+        <label>Price</label>
+        <input type="text" class="form-control" name="ProductPrice" />
+    </div>
+    <div>
+        <label>Image(Please enter URL of product)</label>
+        <input type="text" class="form-control" name="ProductImage" />
+    </div>
+
+    <div style=" margin-top:15px">
+        <button class="btn btn-info">Add Product</button>
+    </div>
+    <div>
+        @if(ViewBag.Message!=null)
+        {
+            <script type="text/javascript">
+                window.onload = function () {
+                    alert("@ViewBag.Message")
+                }
+            </script>
+        }
+    </div>
+</form>
+

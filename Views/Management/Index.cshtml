@@ -1,0 +1,38 @@
+﻿@using Ecommerce_Website.Models.Entity
+@model List<Tbl_Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Product Code</th>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Stock</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>DELETE</th>
+        <th>EDIT</th>
+        <th><a href="/Management/ADD_NEW_PRODUCT" class="btn btn-primary">ADD NEW PRODUCT</a></th>
+    </tr>
+    <tbody>
+        @foreach (var prdct in Model)
+        {
+        <tr>
+            <td>@prdct.ProductCode</td>
+            <td>@prdct.ProductTitle</td>
+            <td>@prdct.ProductDescription</td>
+            <td>@prdct.Stock</td>
+            <td>@prdct.ProductPrice</td>
+            <td><img src=@prdct.ProductImage height="65" width="65"></td>
+
+            <td><a href="/Management/DELETE/@prdct.ProductCode" class="btn btn-danger">DEL</a></td>
+            <td><a href="/Management/ProductGet/@prdct.ProductCode" class="btn btn-success">EDIT</a></td>
+        </tr>
+        }
+
+    </tbody>
+</table>

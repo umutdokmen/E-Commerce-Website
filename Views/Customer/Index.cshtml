@@ -1,0 +1,50 @@
+﻿@using Ecommerce_Website.Models.Entity
+@model List<Tbl_Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Customer", FormMethod.Get))
+{
+    <p>
+        Search Product: @Html.TextBox("p")
+        <input type="submit" value="Search">
+    </p>
+}
+
+
+<!--
+<p>
+    @using (Html.BeginForm("Index","Customer",FormMethod.Get))
+    {
+    <b>Search By:</b> @Html.RadioButton("searchBy", "ProductTitle",true) <text>Name</text>
+    @Html.RadioButton("searchBy", "ProductDescription") <text>Description</text><br/>
+    @Html.TextBox("search") <input type="submit" value="Search" />
+    }
+</p>
+-->
+<table class="table table-bordered">
+    <tr>
+        <th>Product Code</th>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Stock</th>
+        <th>Price</th>
+        <th>Image</th>
+    </tr>
+    <tbody>
+        @foreach (var prdct in Model)
+        {
+            <tr>
+                <td>@prdct.ProductCode</td>
+                <td>@prdct.ProductTitle</td>
+                <td>@prdct.ProductDescription</td>
+                <td>@prdct.Stock</td>
+                <td>@prdct.ProductPrice</td>
+                <td><img src=@prdct.ProductImage height="65" width="65"></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
